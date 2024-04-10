@@ -4,9 +4,25 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = { version = "1.0", default-features = false }
+hex = { version = "0.4", default-features = false, features = ["alloc"] }
 nexus-rt = { git = "https://github.com/nexus-xyz/nexus-zkvm.git" }
+rand = { version = "0.8", default-features = false, features = ["alloc", "small_rng"] }
+# Cannot build
+# rlp = { version = "0.5", default-features = false }
+serde = { version = "1.0", default-features = false }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+sha3 = { version = "0.10", default-features = false }
 sqlparser = { version = "0.44", default-features = false }
 
 [[bin]]
 name = "parse_sql"
 path = "src/parse_sql.rs"
+
+[[bin]]
+name = "utils"
+path = "src/utils.rs"
+
+[[bin]]
+name = "keccak"
+path = "src/keccak.rs"
