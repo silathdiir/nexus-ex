@@ -3,6 +3,10 @@ name = "nexus-ex"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+nexus-rt = { git = "https://github.com/nexus-xyz/nexus-zkvm.git" }
+sqlparser = { version = "0.44", default-features = false }
+
+[[bin]]
+name = "parse_sql"
+path = "src/parse_sql.rs"
