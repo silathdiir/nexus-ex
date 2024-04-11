@@ -26,3 +26,11 @@ path = "src/utils.rs"
 [[bin]]
 name = "keccak"
 path = "src/keccak.rs"
+
+# [profile.release]
+# codegen-units = 1
+# lto = true
+#
+# [profile.release-unoptimized]
+# inherits = "release"
+# opt-level = 0
