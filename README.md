@@ -124,7 +124,7 @@ make prove bin=keccak
 make verify bin=keccak
 ```
 
-## Benchmark
+## Benchmark (VM)
 
 I tried to run on an AWS, but it’s stuck sometimes. So I benchmark as below on my local Mac, and collect the below infos.
 
@@ -196,6 +196,28 @@ cargo nexus prove --bin keccak --impl=par -k=8
 ```
 cargo nexus verify --impl=par -k=8
 ```
+
+## Benchmark (Nova API)
+
+https://github.com/silathdiir/nexus-nova-ex
+benches [Microsoft Nova](https://github.com/microsoft/Nova), [nexus-zkvm](https://github.com/nexus-xyz/nexus-zkvm) Nova and Super Nova with a test Poseidon circuit:
+```bash
+# Microsoft Nova
+ms-nova-11/Prove        time:   [51.772 ms 52.178 ms 52.798 ms]
+ms-nova-11/Verify       time:   [45.647 ms 45.808 ms 46.082 ms]
+
+# Nexus Nova
+nexus-nova-11/Prove     time:   [309.96 ms 311.28 ms 312.65 ms]
+nexus-nova-11/Verify    time:   [259.73 ms 262.18 ms 264.83 ms]
+
+# Nexus Super Nova, no much different with Nexus Nova (for uniform circuit)
+nexus-supernova-11/Prove
+                        time:   [332.21 ms 345.33 ms 360.69 ms]
+nexus-supernova-11/Verify
+                        time:   [279.89 ms 286.91 ms 294.71 ms]
+```
+
+For now the Nexus Nova and Super Nova are slower than Microsoft Nova, similar as the benchmark results in https://github.com/nexus-xyz/nexus-zkvm/tree/main/nova-benches.
 
 ## TODO
 
